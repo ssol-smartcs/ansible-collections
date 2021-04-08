@@ -1,0 +1,29 @@
+---
+requires_ansible: '>=2.10,<2.11'
+plugin_routing:
+  action:
+    smartcs_command:
+      redirect: seiko.smartcs.smartcs
+    command:
+      redirect: seiko.smartcs.smartcs
+    smartcs_config:
+      redirect: seiko.smartcs.smartcs
+    config:
+      redirect: seiko.smartcs.smartcs
+    smartcs_facts:
+      redirect: seiko.smartcs.smartcs
+    facts:
+      redirect: seiko.smartcs.smartcs
+    smartcs_tty_command:
+      redirect: seiko.smartcs.smartcs
+    tty_command:
+      redirect: seiko.smartcs.smartcs
+  modules:
+    command:
+      redirect: seiko.smartcs.smartcs_command
+    config:
+      redirect: seiko.smartcs.smartcs_config
+    facts:
+      redirect: seiko.smartcs.smartcs_facts
+    tty_command:
+      redirect: seiko.smartcs.smartcs_tty_command
