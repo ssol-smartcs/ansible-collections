@@ -12,7 +12,7 @@ This collection has been tested against NS-2250 Ver 2.1
 <!--start requires_ansible-->
 ## Ansible version compatibility
 
-This collection has been tested against following Ansible versions: **>=2.10,<2.11**.
+This collection has been tested against following Ansible versions: **>=2.9.22,<2.12**.
 
 Plugins and modules within a collection may be tested with only specific Ansible versions.
 A collection may contain metadata that identifies these versions.
@@ -27,6 +27,11 @@ The SEIKO SmartCS collection supports ``network_cli``  connections
 ## Included content
 
 <!--start collection content-->
+### Cliconf plugins
+Name | Description
+--- | ---
+[seiko.smartcs.smartcs](https://github.com/ssol-smartcs/ansible-collections/blob/main/seiko.smartcs/docs/seiko.smartcs.smartcs_cliconf.rst)|Use smartcs cliconf to run command on SmartCS platform
+
 ### Modules
 Name | Description
 --- | ---

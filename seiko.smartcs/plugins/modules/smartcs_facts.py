@@ -22,7 +22,7 @@ from __future__ import absolute_import, division, print_function
 __metaclass__ = type
 DOCUMENTATION = """
 module: smartcs_facts
-author: "Seiko Solutions Inc."
+author: "Seiko Solutions Inc. (@naka-shin1)"
 short_description: Collect facts from SmartCS
 description:
 - Collects a base set of device facts from a SmartCS.

@@ -50,10 +50,20 @@ smartcs_provider_spec = {
     'host': dict(),
     'port': dict(type='int'),
     'username': dict(fallback=(env_fallback, ['ANSIBLE_NET_USERNAME'])),
-    'password': dict(fallback=(env_fallback, ['ANSIBLE_NET_PASSWORD']), no_log=True),
-    'ssh_keyfile': dict(fallback=(env_fallback, ['ANSIBLE_NET_SSH_KEYFILE']), type='path'),
-    'authorize': dict(fallback=(env_fallback, ['ANSIBLE_NET_AUTHORIZE']), type='bool'),
-    'auth_pass': dict(fallback=(env_fallback, ['ANSIBLE_NET_AUTH_PASS']), no_log=True),
+    'password': dict(
+        fallback=(env_fallback, ['ANSIBLE_NET_PASSWORD']), no_log=True
+    ),
+    'ssh_keyfile': dict(
+        fallback=(env_fallback, ['ANSIBLE_NET_SSH_KEYFILE']), type='path'
+    ),
+    'authorize': dict(
+        default=False,
+        fallback=(env_fallback, ['ANSIBLE_NET_AUTHORIZE']),
+        type='bool'
+    ),
+    'auth_pass': dict(
+        fallback=(env_fallback, ['ANSIBLE_NET_AUTH_PASS']), no_log=True
+    ),
     'timeout': dict(type='int')
 }
 smartcs_argument_spec = {

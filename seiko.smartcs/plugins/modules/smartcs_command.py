@@ -22,7 +22,7 @@ from __future__ import absolute_import, division, print_function
 __metaclass__ = type
 DOCUMENTATION = """
 module: smartcs_command
-author: "Seiko Solutions Inc."
+author: "Seiko Solutions Inc. (@naka-shin1)"
 short_description: Run commands on remote devices running SmartCS
 description:
 - Sends arbitrary commands to an SmartCS node and returns the results

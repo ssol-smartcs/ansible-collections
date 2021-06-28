@@ -8,7 +8,7 @@ namespace: seiko
 name: smartcs
 
 # The version of the collection.
-version: 1.3.0
+version: 1.4.0
 
 # The path to the Markdown (.md) readme file. 
 readme: README.md
