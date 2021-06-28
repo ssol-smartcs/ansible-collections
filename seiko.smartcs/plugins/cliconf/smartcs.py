@@ -32,13 +32,13 @@ description:
 version_added: 1.3.0
 """
 
-import collections
 import re
 import time
 import json
 
 from ansible.errors import AnsibleConnectionFailure
 from ansible.module_utils._text import to_text
+from ansible.module_utils.common._collections_compat import Mapping
 from ansible.module_utils.six import iteritems
 from ansible_collections.ansible.netcommon.plugins.module_utils.network.common.config import (
     NetworkConfig,
@@ -122,7 +122,7 @@ class Cliconf(CliconfBase):
         requests = []
         if commit:
             for line in to_list(candidate):
-                if not isinstance(line, collections.Mapping):
+                if not isinstance(line, Mapping):
                     line = {'command': line}
 
                 cmd = line['command']
@@ -255,7 +255,7 @@ class Cliconf(CliconfBase):
 
         responses = list()
         for cmd in to_list(commands):
-            if not isinstance(cmd, collections.Mapping):
+            if not isinstance(cmd, Mapping):
                 cmd = {'command': cmd}
 
             output = cmd.pop('output', None)
