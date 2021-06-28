@@ -66,20 +66,20 @@ The following example task login to the console port of the network device via C
 
 ```yaml
 ---
-  - name: Login to Network Device via Console Server SmartCS and execute "show version"
-    seiko.smartcs.smartcs_tty_command:
-      tty: 1
-      cmd_timeout : 5
-      recvchar:
-      - 'login: '
-      - 'Password: '
-      - 'SWITCH> '
-      sendchar:
-      - __NL__
-      - user1
-      - secret
-      - show version
-      - exit
+- name: Login to Network Device via Console Server SmartCS and execute "show version"
+  seiko.smartcs.smartcs_tty_command:
+    tty: 1
+    cmd_timeout : 5
+    recvchar:
+    - 'login: '
+    - 'Password: '
+    - 'SWITCH> '
+    sendchar:
+    - __NL__
+    - user1
+    - secret
+    - show version
+    - exit
 ```
 
 
