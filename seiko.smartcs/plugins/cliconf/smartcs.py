@@ -23,8 +23,8 @@ from __future__ import (absolute_import, division, print_function)
 __metaclass__ = type
 
 DOCUMENTATION = """
-author: Ansible Networking Team
-cliconf: seiko
+author: Seiko Solutions Inc.
+cliconf: smartcs
 short_description: Use smartcs cliconf to run command on SmartCS platform
 description:
 - This smartcs plugin provides low level abstraction apis for sending and receiving CLI
