@@ -27,6 +27,11 @@ The SEIKO SmartCS collection supports ``network_cli``  connections
 ## Included content
 
 <!--start collection content-->
+### Cliconf plugins
+Name | Description
+--- | ---
+[seiko.smartcs.smartcs](https://github.com/ssol-smartcs/ansible-collections/blob/main/seiko.smartcs/docs/seiko.smartcs.smartcs_cliconf.rst)|Use smartcs cliconf to run command on SmartCS platform
+
 ### Modules
 Name | Description
 --- | ---
