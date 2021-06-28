@@ -260,4 +260,4 @@ Status
 Authors
 ~~~~~~~
 
-- Seiko Solutions Inc.
+- Seiko Solutions Inc. (@naka-shin1)

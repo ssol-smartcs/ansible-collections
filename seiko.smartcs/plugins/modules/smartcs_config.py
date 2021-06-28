@@ -22,7 +22,7 @@ from __future__ import absolute_import, division, print_function
 __metaclass__ = type
 DOCUMENTATION = """
 module: smartcs_config
-author: "Seiko Solutions Inc."
+author: "Seiko Solutions Inc. (@naka-shin1)"
 short_description: Manage configuratin sections of SmartCS
 description:
 - This module provides configuration of SmartCS.
