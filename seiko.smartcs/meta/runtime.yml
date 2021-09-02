@@ -1,5 +1,5 @@
 ---
-requires_ansible: '>=2.9.22,<2.12'
+requires_ansible: '>=2.9.10,<2.12'
 plugin_routing:
   action:
     smartcs_command:
