@@ -83,6 +83,22 @@ ansible_net_version:
   description: The operating system version running on the remote device
   returned: always
   type: str
+ansible_net_mainsystem:
+  description: The operating system version of main system of the remote device
+  returned: always
+  type: str
+ansible_net_backupsystem:
+  description: The operating system version of backup system of the remote device
+  returned: always
+  type: str
+ansible_net_bootconfig:
+  description: The boot config of the remote device
+  returned: always
+  type: str
+ansible_net_bootrom:
+  description: The BootROM version running on the remote device
+  returned: always
+  type: str
 ansible_net_hostname:
   description: The configured hostname of the device
   returned: always

@@ -101,6 +101,21 @@ Common return values are documented `here <https://docs.ansible.com/ansible/late
             <tr>
                 <td colspan="1">
                     <div class="ansibleOptionAnchor" id="return-"></div>
+                    <b>ansible_net_backupsystem</b>
+                    <a class="ansibleOptionLink" href="#return-" title="Permalink to this return value"></a>
+                    <div style="font-size: small">
+                      <span style="color: purple">string</span>
+                    </div>
+                </td>
+                <td>always</td>
+                <td>
+                            <div>The operating system version of backup system of the remote device</div>
+                    <br/>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="1">
+                    <div class="ansibleOptionAnchor" id="return-"></div>
                     <b>ansible_net_bond1</b>
                     <a class="ansibleOptionLink" href="#return-" title="Permalink to this return value"></a>
                     <div style="font-size: small">
@@ -110,6 +125,36 @@ Common return values are documented `here <https://docs.ansible.com/ansible/late
                 <td>always</td>
                 <td>
                             <div>The configured bond1 interfaces of the remote device</div>
+                    <br/>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="1">
+                    <div class="ansibleOptionAnchor" id="return-"></div>
+                    <b>ansible_net_bootconfig</b>
+                    <a class="ansibleOptionLink" href="#return-" title="Permalink to this return value"></a>
+                    <div style="font-size: small">
+                      <span style="color: purple">string</span>
+                    </div>
+                </td>
+                <td>always</td>
+                <td>
+                            <div>The boot config of the remote device</div>
+                    <br/>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="1">
+                    <div class="ansibleOptionAnchor" id="return-"></div>
+                    <b>ansible_net_bootrom</b>
+                    <a class="ansibleOptionLink" href="#return-" title="Permalink to this return value"></a>
+                    <div style="font-size: small">
+                      <span style="color: purple">string</span>
+                    </div>
+                </td>
+                <td>always</td>
+                <td>
+                            <div>The BootROM version running on the remote device</div>
                     <br/>
                 </td>
             </tr>
@@ -185,6 +230,21 @@ Common return values are documented `here <https://docs.ansible.com/ansible/late
                 <td>always</td>
                 <td>
                             <div>The configured hostname of the device</div>
+                    <br/>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="1">
+                    <div class="ansibleOptionAnchor" id="return-"></div>
+                    <b>ansible_net_mainsystem</b>
+                    <a class="ansibleOptionLink" href="#return-" title="Permalink to this return value"></a>
+                    <div style="font-size: small">
+                      <span style="color: purple">string</span>
+                    </div>
+                </td>
+                <td>always</td>
+                <td>
+                            <div>The operating system version of main system of the remote device</div>
                     <br/>
                 </td>
             </tr>
