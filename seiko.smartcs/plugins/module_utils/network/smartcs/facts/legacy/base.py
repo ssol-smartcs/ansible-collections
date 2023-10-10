@@ -71,6 +71,7 @@ class Default(FactsBase):
             self.facts['backupsystem'] = self.parse_backupsystem(shver)
             self.facts['bootrom'] = self.parse_bootrom(shver)
             self.facts['bootconfig'] = self.parse_bootconfig(shver)
+
         if ship:
             self.facts['hostname'] = self.parse_hostname(ship)
             self.facts['eth1'] = self.parse_eth1(ship)
