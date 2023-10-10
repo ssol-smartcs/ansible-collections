@@ -67,6 +67,10 @@ class Default(FactsBase):
             self.facts['version'] = self.parse_version(shver)
             self.facts['serialnum'] = self.parse_serialnum(shver)
             self.facts['model'] = self.parse_model(shver)
+            self.facts['mainsystem'] = self.parse_mainsystem(shver)
+            self.facts['backupsystem'] = self.parse_backupsystem(shver)
+            self.facts['bootrom'] = self.parse_bootrom(shver)
+            self.facts['bootconfig'] = self.parse_bootconfig(shver)
         if ship:
             self.facts['hostname'] = self.parse_hostname(ship)
             self.facts['eth1'] = self.parse_eth1(ship)
@@ -133,6 +137,26 @@ class Default(FactsBase):
 
     def parse_model(self, data):
         match = re.search(r'Model                 : (.*)', data)
+        if match:
+            return match.group(1)
+
+    def parse_mainsystem(self, data):
+        match = re.search(r'Main System           : Ver (.*)', data)
+        if match:
+            return match.group(1)
+
+    def parse_backupsystem(self, data):
+        match = re.search(r'Backup System         : Ver (.*)', data)
+        if match:
+            return match.group(1)
+
+    def parse_bootrom(self, data):
+        match = re.search(r'BootROM               : Ver (.*)', data)
+        if match:
+            return match.group(1)
+
+    def parse_bootconfig(self, data):
+        match = re.search(r'Boot Config           : (.*)', data)
         if match:
             return match.group(1)
 
