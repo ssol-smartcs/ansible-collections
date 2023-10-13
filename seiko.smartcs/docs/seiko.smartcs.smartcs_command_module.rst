@@ -17,7 +17,7 @@ Version added: 1.3.0
 
 Synopsis
 --------
-- Sends arbitrary commands to an SmartCS node and returns the results read from the device. This module includes an argument that will cause the module to wait for a specific condition before returning or timing out if the condition is not met. This module does not support running commands in configuration mode. Please use :ref:`smartcs_config <smartcs_config_module>` to configure SmartCS.
+- Sends arbitrary commands to an SmartCS node and returns the results read from the device. This module includes an argument that will cause the module to wait for a specific condition before returning or timing out if the condition is not met. This module does not support running commands in configuration mode. Please use :ref:`seiko.smartcs.smartcs_config <seiko.smartcs.smartcs_config_module>` to configure SmartCS.
 
 
 

@@ -4,6 +4,23 @@ SEIKO SmartCS Collection and Modules Release Notes
 
 .. contents:: Topics
 
+v1.5.0
+======
+
+Release Date
+---------------
+
+- 2023.9
+
+Release Summary
+---------------
+
+- Support ansible-core 2.13, 2.14, 2.15.
+- Fixed errors detected by ansible-test sanity and ansible-lnt.
+- Extended the information collected by smartcs_facts.
+- Add ansible-pylibssh to requirements.txt.
+
+
 v1.4.1
 ======
 
@@ -16,7 +33,7 @@ Release Summary
 ---------------
 
 - Extended the supported versions of ansible 2.9 series.
-- Improved errors detected by ansible-test sanity.
+- Improved errors detected by ansible-test sanity and ansible-lint.
 
 
 v1.4.0

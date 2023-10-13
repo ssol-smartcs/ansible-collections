@@ -30,7 +30,7 @@ description:
   argument that will cause the module to wait for a specific condition
   before returning or timing out if the condition is not met.
   This module does not support running commands in configuration mode.
-  Please use M(smartcs_config) to configure SmartCS.
+  Please use M(seiko.smartcs.smartcs_config) to configure SmartCS.
 version_added: 1.3.0
 extends_documentation_fragment:
 - seiko.smartcs.smartcs

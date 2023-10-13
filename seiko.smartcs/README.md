@@ -6,13 +6,13 @@ This software works as a module of [Ansible](https://ansible.com) by Red Hat, In
 
 ## SmartCS software version compatibility
 
-This collection has been tested against NS-2250 Ver 2.1
+This collection has been tested against NS-2250 Ver 3.1
 
 
 <!--start requires_ansible-->
 ## Ansible version compatibility
 
-This collection has been tested against following Ansible versions: **>=2.9.10,<2.12**.
+This collection has been tested against following Ansible versions: **>=2.13.0,<2.16**.
 
 Plugins and modules within a collection may be tested with only specific Ansible versions.
 A collection may contain metadata that identifies these versions.
@@ -119,7 +119,15 @@ $
 
 ## More information
 
+### docs.ansible.com
+
 - [Ansible User guide](https://docs.ansible.com/ansible/latest/user_guide/index.html)
 - [Ansible Galaxy User guide](https://docs.ansible.com/ansible/latest/galaxy/user_guide.html)
 - [Ansible Network Getting Started](https://docs.ansible.com/ansible/latest/network/getting_started/index.html)
 - [Ansible Community code of conduct](https://docs.ansible.com/ansible/latest/community/code_of_conduct.html)
+
+
+### SmartCS Official Website (SEIKO SOLUTIONS INC.)
+
+- [Network automation with Ansible](https://www.seiko-sol.co.jp/en/products/console-server/console-server_automation/ansible/)
+- [AnsibleとSmartCSの連携](https://www.seiko-sol.co.jp/products/console-server/console-server_automation/ansible/)
