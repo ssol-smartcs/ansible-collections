@@ -56,12 +56,12 @@ EXAMPLES = """
 - name: Collect only the config and default facts
   seiko.smartcs.smartcs_facts:
     gather_subset:
-    - config
+      - config
 
 - name: Do not collect tty facts
   seiko.smartcs.smartcs_facts:
     gather_subset:
-    - "!tty"
+      - "!tty"
 """
 
 RETURN = """
