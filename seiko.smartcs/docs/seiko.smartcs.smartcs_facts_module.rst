@@ -29,12 +29,12 @@ Parameters
 
     <table  border=0 cellpadding=0 class="documentation-table">
         <tr>
-            <th colspan="1">Parameter</th>
+            <th colspan="2">Parameter</th>
             <th>Choices/<font color="blue">Defaults</font></th>
             <th width="100%">Comments</th>
         </tr>
             <tr>
-                <td colspan="1">
+                <td colspan="2">
                     <div class="ansibleOptionAnchor" id="parameter-"></div>
                     <b>gather_subset</b>
                     <a class="ansibleOptionLink" href="#parameter-" title="Permalink to this option"></a>
@@ -62,6 +62,7 @@ Notes
 
 .. note::
    - Tested against SmartCS NS-2250 System Software Ver 2.1
+   - For more information on using Ansible to manage network devices see the :ref:`Ansible Network Guide <network_guide>`
 
 
 
@@ -77,12 +78,12 @@ Examples
     - name: Collect only the config and default facts
       seiko.smartcs.smartcs_facts:
         gather_subset:
-        - config
+          - config
 
     - name: Do not collect tty facts
       seiko.smartcs.smartcs_facts:
         gather_subset:
-        - "!tty"
+          - "!tty"
 
 
 

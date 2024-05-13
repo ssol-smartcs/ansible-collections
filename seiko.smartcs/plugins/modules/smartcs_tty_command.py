@@ -181,16 +181,16 @@ EXAMPLES = """
 - name: Login to SmartCS and execute "show version"
   seiko.smartcs.smartcs_tty_command:
     tty: 1
-    cmd_timeout : 5
+    cmd_timeout: 5
     recvchar:
-    - 'login: '
-    - 'Password: '
-    - 'SWITCH> '
+      - 'login: '
+      - 'Password: '
+      - 'SWITCH> '
     sendchar:
-    - __NL__
-    - user01
-    - secret01
-    - show version
+      - __NL__
+      - user01
+      - secret01
+      - show version
 """
 
 RETURN = """

@@ -106,27 +106,27 @@ EXAMPLES = """
 - name: run multiple commands on remote nodes
   seiko.smartcs.smartcs_command:
     commands:
-    - show version
-    - show ipinterface
+      - show version
+      - show ipinterface
 
 - name: run multiple commands and evaluate the output
   seiko.smartcs.smartcs_command:
     commands:
-    - show version
-    - show ipinterfaces
+      - show version
+      - show ipinterfaces
     wait_for:
-    - result[0] contains NS-2250
-    - result[1] contains lo
+      - result[0] contains NS-2250
+      - result[1] contains lo
 
 - name: run commands that require answering a prompt
   seiko.smartcs.smartcs_command:
     commands:
-    - command: 'copy startup 2 to startup 4'
-      prompt: 'Do you really want to copy external startup1 to external startup3 [y/n] ? '
-      answer: 'y'
-    - command: 'clear startup 2'
-      prompt: 'Do you really want to clear external & internal startup2 [y/n] ? '
-      answer: "y"
+      - command: 'copy startup 2 to startup 4'
+        prompt: 'Do you really want to copy external startup1 to external startup3 [y/n] ? '
+        answer: 'y'
+      - command: 'clear startup 2'
+        prompt: 'Do you really want to clear external & internal startup2 [y/n] ? '
+        answer: "y"
 """
 
 RETURN = """

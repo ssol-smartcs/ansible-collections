@@ -29,12 +29,12 @@ Parameters
 
     <table  border=0 cellpadding=0 class="documentation-table">
         <tr>
-            <th colspan="1">Parameter</th>
+            <th colspan="2">Parameter</th>
             <th>Choices/<font color="blue">Defaults</font></th>
             <th width="100%">Comments</th>
         </tr>
             <tr>
-                <td colspan="1">
+                <td colspan="2">
                     <div class="ansibleOptionAnchor" id="parameter-"></div>
                     <b>commands</b>
                     <a class="ansibleOptionLink" href="#parameter-" title="Permalink to this option"></a>
@@ -51,7 +51,7 @@ Parameters
                 </td>
             </tr>
             <tr>
-                <td colspan="1">
+                <td colspan="2">
                     <div class="ansibleOptionAnchor" id="parameter-"></div>
                     <b>interval</b>
                     <a class="ansibleOptionLink" href="#parameter-" title="Permalink to this option"></a>
@@ -67,7 +67,7 @@ Parameters
                 </td>
             </tr>
             <tr>
-                <td colspan="1">
+                <td colspan="2">
                     <div class="ansibleOptionAnchor" id="parameter-"></div>
                     <b>match</b>
                     <a class="ansibleOptionLink" href="#parameter-" title="Permalink to this option"></a>
@@ -86,7 +86,7 @@ Parameters
                 </td>
             </tr>
             <tr>
-                <td colspan="1">
+                <td colspan="2">
                     <div class="ansibleOptionAnchor" id="parameter-"></div>
                     <b>retries</b>
                     <a class="ansibleOptionLink" href="#parameter-" title="Permalink to this option"></a>
@@ -102,7 +102,7 @@ Parameters
                 </td>
             </tr>
             <tr>
-                <td colspan="1">
+                <td colspan="2">
                     <div class="ansibleOptionAnchor" id="parameter-"></div>
                     <b>wait_for</b>
                     <a class="ansibleOptionLink" href="#parameter-" title="Permalink to this option"></a>
@@ -127,6 +127,7 @@ Notes
 
 .. note::
    - Tested against SmartCS NS-2250 System Software Ver 2.1
+   - For more information on using Ansible to manage network devices see the :ref:`Ansible Network Guide <network_guide>`
 
 
 
@@ -147,27 +148,27 @@ Examples
     - name: run multiple commands on remote nodes
       seiko.smartcs.smartcs_command:
         commands:
-        - show version
-        - show ipinterface
+          - show version
+          - show ipinterface
 
     - name: run multiple commands and evaluate the output
       seiko.smartcs.smartcs_command:
         commands:
-        - show version
-        - show ipinterfaces
+          - show version
+          - show ipinterfaces
         wait_for:
-        - result[0] contains NS-2250
-        - result[1] contains lo
+          - result[0] contains NS-2250
+          - result[1] contains lo
 
     - name: run commands that require answering a prompt
       seiko.smartcs.smartcs_command:
         commands:
-        - command: 'copy startup 2 to startup 4'
-          prompt: 'Do you really want to copy external startup1 to external startup3 [y/n] ? '
-          answer: 'y'
-        - command: 'clear startup 2'
-          prompt: 'Do you really want to clear external & internal startup2 [y/n] ? '
-          answer: "y"
+          - command: 'copy startup 2 to startup 4'
+            prompt: 'Do you really want to copy external startup1 to external startup3 [y/n] ? '
+            answer: 'y'
+          - command: 'clear startup 2'
+            prompt: 'Do you really want to clear external & internal startup2 [y/n] ? '
+            answer: "y"
 
 
 

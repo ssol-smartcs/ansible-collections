@@ -6,14 +6,16 @@ This software works as a module of [Ansible](https://ansible.com) by Red Hat, In
 
 ## SmartCS software version compatibility
 
-This collection has been tested against NS-2250 Ver 3.1
+This collection has been tested against NS-2250 Ver 3.1.1
 
 
 <!--start requires_ansible-->
 ## Ansible version compatibility
 
-This collection has been tested against following Ansible versions: **>=2.13.0,<2.16**.
+This collection has been tested against following Ansible versions: **>=2.14.0,<2.17**.
 
+For collections that support Ansible 2.9, please ensure you update your `network_os` to use the
+fully qualified collection name (for example, `seiko.smartcs.smartcs`).
 Plugins and modules within a collection may be tested with only specific Ansible versions.
 A collection may contain metadata that identifies these versions.
 PEP440 is the schema used to describe the versions of Ansible.
@@ -74,17 +76,17 @@ The following example task login to the console port of the network device via C
 - name: Login to Network Device via Console Server SmartCS and execute "show version"
   seiko.smartcs.smartcs_tty_command:
     tty: 1
-    cmd_timeout : 5
+    cmd_timeout: 5
     recvchar:
-    - 'login: '
-    - 'Password: '
-    - 'SWITCH> '
+      - 'login: '
+      - 'Password: '
+      - 'SWITCH> '
     sendchar:
-    - __NL__
-    - user1
-    - secret
-    - show version
-    - exit
+      - __NL__
+      - user1
+      - secret
+      - show version
+      - exit
 ```
 
 

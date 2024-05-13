@@ -98,22 +98,22 @@ EXAMPLES = """
 - name: configuration tty 1 settings
   seiko.smartcs.smartcs_config:
     lines:
-    - pord tty 1 label SWITCH_1
-    - set tty 1 baud 38400
+      - pord tty 1 label SWITCH_1
+      - set tty 1 baud 38400
 
 - name: configuration tty 20 settings and write
   seiko.smartcs.smartcs_config:
     lines:
-    - set pord tty 20 label ROUTER
-    - set tty 20 baud 19200
+      - set pord tty 20 label ROUTER
+      - set tty 20 baud 19200
     save_when: modified
 
 - name: configuration host name and get backup file
   seiko.smartcs.smartcs_config:
     lines:
-    - set hostname SmartCS_TEST1
+      - set hostname SmartCS_TEST1
     save_when: always
-    backup: yes
+    backup: true
 """
 
 RETURN = """

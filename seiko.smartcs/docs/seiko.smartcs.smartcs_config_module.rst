@@ -29,12 +29,12 @@ Parameters
 
     <table  border=0 cellpadding=0 class="documentation-table">
         <tr>
-            <th colspan="1">Parameter</th>
+            <th colspan="2">Parameter</th>
             <th>Choices/<font color="blue">Defaults</font></th>
             <th width="100%">Comments</th>
         </tr>
             <tr>
-                <td colspan="1">
+                <td colspan="2">
                     <div class="ansibleOptionAnchor" id="parameter-"></div>
                     <b>backup</b>
                     <a class="ansibleOptionLink" href="#parameter-" title="Permalink to this option"></a>
@@ -53,7 +53,7 @@ Parameters
                 </td>
             </tr>
             <tr>
-                <td colspan="1">
+                <td colspan="2">
                     <div class="ansibleOptionAnchor" id="parameter-"></div>
                     <b>lines</b>
                     <a class="ansibleOptionLink" href="#parameter-" title="Permalink to this option"></a>
@@ -70,7 +70,7 @@ Parameters
                 </td>
             </tr>
             <tr>
-                <td colspan="1">
+                <td colspan="2">
                     <div class="ansibleOptionAnchor" id="parameter-"></div>
                     <b>match</b>
                     <a class="ansibleOptionLink" href="#parameter-" title="Permalink to this option"></a>
@@ -89,7 +89,7 @@ Parameters
                 </td>
             </tr>
             <tr>
-                <td colspan="1">
+                <td colspan="2">
                     <div class="ansibleOptionAnchor" id="parameter-"></div>
                     <b>save_when</b>
                     <a class="ansibleOptionLink" href="#parameter-" title="Permalink to this option"></a>
@@ -110,7 +110,7 @@ Parameters
                 </td>
             </tr>
             <tr>
-                <td colspan="1">
+                <td colspan="2">
                     <div class="ansibleOptionAnchor" id="parameter-"></div>
                     <b>src</b>
                     <a class="ansibleOptionLink" href="#parameter-" title="Permalink to this option"></a>
@@ -133,6 +133,7 @@ Notes
 
 .. note::
    - Tested against SmartCS NS-2250 System Software Ver 2.1
+   - For more information on using Ansible to manage network devices see the :ref:`Ansible Network Guide <network_guide>`
 
 
 
@@ -144,22 +145,22 @@ Examples
     - name: configuration tty 1 settings
       seiko.smartcs.smartcs_config:
         lines:
-        - pord tty 1 label SWITCH_1
-        - set tty 1 baud 38400
+          - pord tty 1 label SWITCH_1
+          - set tty 1 baud 38400
 
     - name: configuration tty 20 settings and write
       seiko.smartcs.smartcs_config:
         lines:
-        - set pord tty 20 label ROUTER
-        - set tty 20 baud 19200
+          - set pord tty 20 label ROUTER
+          - set tty 20 baud 19200
         save_when: modified
 
     - name: configuration host name and get backup file
       seiko.smartcs.smartcs_config:
         lines:
-        - set hostname SmartCS_TEST1
+          - set hostname SmartCS_TEST1
         save_when: always
-        backup: yes
+        backup: true
 
 
 

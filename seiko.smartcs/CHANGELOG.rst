@@ -4,6 +4,20 @@ SEIKO SmartCS Collection and Modules Release Notes
 
 .. contents:: Topics
 
+v1.6.0
+======
+
+Release Date
+---------------
+
+- 2024.5
+
+Release Summary
+---------------
+
+- Support ansible-core 2.14, 2.15, 2.16.
+- Fixed errors detected by ansible-test sanity and ansible-lint.
+
 v1.5.0
 ======
 
