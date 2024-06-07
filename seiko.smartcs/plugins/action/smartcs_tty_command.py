@@ -1,1 +1,1 @@
-smartcs.py
+smartcs_config.py

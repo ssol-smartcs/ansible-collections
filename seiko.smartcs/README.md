@@ -12,7 +12,7 @@ This collection has been tested against NS-2250 Ver 3.1.1
 <!--start requires_ansible-->
 ## Ansible version compatibility
 
-This collection has been tested against following Ansible versions: **>=2.14.0,<2.17**.
+This collection has been tested against following Ansible versions: **>=2.15.0,<2.18**.
 
 For collections that support Ansible 2.9, please ensure you update your `network_os` to use the
 fully qualified collection name (for example, `seiko.smartcs.smartcs`).

@@ -13,7 +13,7 @@ issues: https://github.com/ssol-smartcs/ansible-collections/issues
 documentation: https://github.com/ssol-smartcs/ansible-collections/tree/main/seiko.smartcs/docs
 homepage: https://www.seiko-sol.co.jp/en/products/console-server/console-server_automation/ansible/
 tags: [seiko, smartcs, networking]
-version: 1.6.0
+version: 1.7.0-dev1
 
 build_ignore:
   - venv
