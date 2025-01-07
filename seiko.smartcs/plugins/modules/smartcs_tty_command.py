@@ -226,6 +226,7 @@ from ansible_collections.seiko.smartcs.plugins.module_utils.network.smartcs.smar
     WAITSEC,
     NOWAIT,
     NOWAITSEC,
+    HEXSTR,
 )
 from ansible_collections.seiko.smartcs.plugins.module_utils.network.smartcs.smartcs import (
     terminal_ttymanage_waitstr_input,
@@ -352,6 +353,10 @@ def param_to_commands(module):
             elif NOWAIT in cmd:
                 cmd_l = parse_cmd(module, cmd, NOWAIT)
                 commands.append(get_clicmd_ttysend(module, ttynum, nl, cmd_l))
+
+            # __HEX__
+            elif HEXSTR in cmd:
+                commands.append(get_clicmd_ttysend(module, ttynum, nl, cmd))
 
             else:
                 commands.append(get_clicmd_ttysend_waitset(module, ttynum, nl, cmd, cmd_timeout))

@@ -262,6 +262,10 @@ def cli_ttysend_ctl(ttynum, nl, ctl):
     return 'ttysend tty ' + str(ttynum) + ' nl ' + nl + ' ctl_char ' + str(ctl)
 
 
+def cli_ttysend_delay_hexstr(ttynum, delay, hexstr):
+    return 'ttysend tty ' + str(ttynum) + ' delay ' + str(delay) + ' hex ' + '"' + str(hexstr) + '"'
+
+
 def cli_ttysend_nl(ttynum, nl):
     return 'ttysend tty ' + str(ttynum) + ' nl ' + nl + ' nlonly'
 
@@ -330,11 +334,29 @@ WAITSEC = "__WAIT__:"
 NOWAIT = "__NOWAIT__"
 NOWAITSEC = "__NOWAIT__:"
 CTLCHAR = "__CTL__:"
+HEXSTR = "__HEX__:"
 
 ctlchar_list = ['00', '01', '02', '03', '04', '05', '06', '07',
                 '08', '09', '0a', '0b', '0c', '0d', '0e', '0f',
                 '10', '11', '12', '13', '14', '15', '16', '17',
                 '18', '19', '1a', '1b', '1c', '1d', '1e', '1f', '7f']
+
+
+def _is_hex(val):
+    try:
+        int(val, 16)
+        return True
+    except:
+        return False
+
+
+def check_hexstr(hexstr):
+    if len(hexstr) > 64:
+        return False
+    for x in hexstr.split():
+        if not _is_hex(x) or int(x,16) > 127:
+            return False
+    return True
 
 
 def parse_cmd(module, cmd, spcmd):
@@ -349,6 +371,12 @@ def parse_cmd(module, cmd, spcmd):
                 raise Exception
             else:
                 return ctlchar
+        elif spcmd == HEXSTR:
+            hexstr = str.rstrip(cmd.split("__HEX__:")[1])
+            if not check_hexstr(hexstr):
+                raise Exception
+            else:
+                return hexstr
         else:
             pass
     except Exception:
@@ -538,6 +566,9 @@ def get_clicmd_ttysend_delay(module, tty, nl, cmd, cmd_timeout):
     elif CTLCHAR in cmd:
         ctl = parse_cmd(module, cmd, CTLCHAR)
         return cli_ttysend_delay_ctl(tty, cmd_timeout, nl, ctl)
+    elif HEXSTR in cmd:
+        hexstr = parse_cmd(module, cmd, HEXSTR)
+        return cli_ttysend_delay_hexstr(tty, cmd_timeout, hexstr)
     else:
         return cli_ttysend_delay_in(tty, cmd_timeout, nl, cmd)
 
@@ -549,6 +580,10 @@ def get_clicmd_ttysend(module, tty, nl, cmd):
     elif CTLCHAR in cmd:
         ctl = parse_cmd(module, cmd, CTLCHAR)
         return cli_ttysend_ctl(tty, nl, ctl)
+    elif HEXSTR in cmd:
+        hexstr = parse_cmd(module, cmd, HEXSTR)
+        cmd_timeout = '1'
+        return cli_ttysend_delay_hexstr(tty, cmd_timeout, hexstr)
     else:
         return cli_ttysend_in(tty, nl, cmd)
 
