@@ -346,15 +346,15 @@ def _is_hex(val):
     try:
         int(val, 16)
         return True
-    except:
+    except Exception:
         return False
 
 
 def check_hexstr(hexstr):
-    if len(hexstr) > 64:
+    if len(hexstr) < 1 or len(hexstr) > 64:
         return False
     for x in hexstr.split():
-        if not _is_hex(x) or int(x,16) > 127:
+        if not _is_hex(x) or int(x, 16) > 127:
             return False
     return True
 
