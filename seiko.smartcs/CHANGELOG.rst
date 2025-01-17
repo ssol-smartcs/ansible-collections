@@ -4,6 +4,22 @@ SEIKO SmartCS Collection and Modules Release Notes
 
 .. contents:: Topics
 
+v1.7.0
+======
+
+Release Date
+---------------
+
+- 2025.1
+
+Release Summary
+---------------
+
+- Support ansible-core 2.16, 2.17, 2.18.
+- Added HEX suboption to smartcs_tty_command module.
+- Support README templates.
+- Fixed warnings detected by ansible-test sanity.
+
 v1.6.0
 ======
 
