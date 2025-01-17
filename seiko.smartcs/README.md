@@ -7,7 +7,7 @@ SmartCS modules for Ansible works sends and receives character string to devices
 ## Requirements
 
 - Ansible Core 2.16.0 to 2.18.x
-- Python 3.10 or above
+- Python 3.10 to 3.12
 
 ## Installation
 Before using this collection, you need to install it with the Ansible Galaxy command-line tool:
@@ -66,7 +66,7 @@ You can call modules by their Fully Qualified Collection Namespace (FQCN), such 
 - name: configuration tty 20 settings and write
   seiko.smartcs.smartcs_config:
     lines:
-      - set pord tty 20 label ROUTER
+      - set portd tty 20 label ROUTER
       - set tty 20 baud 19200
     save_when: modified
 ```
