@@ -1,77 +1,48 @@
 # SEIKO SmartCS Ansible Collection
 
+## Description
+
 SmartCS modules for Ansible works sends and receives character string to devices connected to SmartCS, and configures and manages SmartCS.
 
-This software works as a module of [Ansible](https://ansible.com) by Red Hat, Inc.
+## Requirements
 
-## SmartCS software version compatibility
+- Ansible Core 2.16.0 to 2.18.x
+- Python 3.10 to 3.12
 
-This collection has been tested against NS-2250 Ver 3.1.1
+## Installation
+Before using this collection, you need to install it with the Ansible Galaxy command-line tool:
 
-
-<!--start requires_ansible-->
-## Ansible version compatibility
-
-This collection has been tested against following Ansible versions: **>=2.14.0,<2.17**.
-
-For collections that support Ansible 2.9, please ensure you update your `network_os` to use the
-fully qualified collection name (for example, `seiko.smartcs.smartcs`).
-Plugins and modules within a collection may be tested with only specific Ansible versions.
-A collection may contain metadata that identifies these versions.
-PEP440 is the schema used to describe the versions of Ansible.
-<!--end requires_ansible-->
-
-
-### Supported connections
-The SEIKO SmartCS collection supports ``network_cli``  connections
-
-
-## Included content
-
-<!--start collection content-->
-### Cliconf plugins
-Name | Description
---- | ---
-[seiko.smartcs.smartcs](https://github.com/ssol-smartcs/ansible-collections/blob/main/seiko.smartcs/docs/seiko.smartcs.smartcs_cliconf.rst)|Use smartcs cliconf to run command on SmartCS platform
-
-### Modules
-Name | Description
---- | ---
-[seiko.smartcs.smartcs_command](https://github.com/ssol-smartcs/ansible-collections/blob/main/seiko.smartcs/docs/seiko.smartcs.smartcs_command_module.rst)|Run commands on remote devices running SmartCS
-[seiko.smartcs.smartcs_config](https://github.com/ssol-smartcs/ansible-collections/blob/main/seiko.smartcs/docs/seiko.smartcs.smartcs_config_module.rst)|Manage configuratin sections of SmartCS
-[seiko.smartcs.smartcs_facts](https://github.com/ssol-smartcs/ansible-collections/blob/main/seiko.smartcs/docs/seiko.smartcs.smartcs_facts_module.rst)|Collect facts from SmartCS
-[seiko.smartcs.smartcs_tty_command](https://github.com/ssol-smartcs/ansible-collections/blob/main/seiko.smartcs/docs/seiko.smartcs.smartcs_tty_command_module.rst)|Send character string to device via ConsoleServer SmartCS
-
-<!--end collection content-->
-
-## Installing this collection
-
-### Installation
-You can install the SEIKO SmartCS collection with the Ansible Galaxy CLI:
-
-    ansible-galaxy collection install seiko.smartcs
+```
+ansible-galaxy collection install seiko.smartcs
+```
 
 You can also include it in a `requirements.yml` file and install it with `ansible-galaxy collection install -r requirements.yml`, using the format:
 
 ```yaml
----
 collections:
   - name: seiko.smartcs
 ```
 
-### See Also:
+**Note**: that if you install the collection from Ansible Galaxy, it will not be upgraded automatically when you upgrade the Ansible package.
+To upgrade the collection to the latest available version, run the following command:
 
-* [Ansible Using collections](https://docs.ansible.com/ansible/latest/user_guide/collections_using.html) for more details.
+```
+ansible-galaxy collection install seiko.smartcs --upgrade
+```
 
+You can also install a specific version of the collection, for example, if you need to downgrade when something is broken in the latest version (please report an issue in this repository). Use the following syntax to install version 1.6.0:
 
-## Playbook 
+```
+ansible-galaxy collection install seiko.smartcs:==1.6.0
+```
 
-### Using modules from the SEIKO SmartCS collection in your playbooks
+See [using Ansible collections](https://docs.ansible.com/ansible/devel/user_guide/collections_using.html) for more details.
 
-You can call modules by their Fully Qualified Collection Namespace (FQCN), such as `seiko.smartcs.smartcs_tty_command`.
-The following example task login to the console port of the network device via Console Server SmartCS and execute the show version command, using the FQCN:
+## Use Cases
 
-```yaml
+### Use Case 1 - Login to Network Device via Console Server SmartCS and execute "show version"
+You can call modules by their Fully Qualified Collection Namespace (FQCN), such as seiko.smartcs.smartcs_tty_command. The following example task login to the console port of the network device via Console Server SmartCS and execute the show version command, using the FQCN:
+```
 ---
 - name: Login to Network Device via Console Server SmartCS and execute "show version"
   seiko.smartcs.smartcs_tty_command:
@@ -89,47 +60,43 @@ The following example task login to the console port of the network device via C
       - exit
 ```
 
-
-## Release notes
-<!--Add a link to a changelog.md file or an external docsite to cover this information. -->
-Release notes are available [here](https://github.com/ssol-smartcs/ansible-collections/blob/main/seiko.smartcs/changelogs/CHANGELOG.rst).
-
-
-## Authors
-
-SmartCS modules for Ansible is created by [SEIKO SOLUTIONS INC.](https://www.seiko-sol.co.jp/).
-
-
-## License
-
-SmartCS modules for Ansible is licensed under the [GNU General Public License Version 3](https://www.gnu.org/licenses/gpl-3.0.html).
-
-This software includes programs which are modified from Ansible.
-For the full text, see the COPYING file.
-
-
-## Building Ansible Collections Package for SmartCS
-
+### Use Case 2 - Set and write the transmission speed and label of SmartCS serial port 20
 ```
-$ git clone https://github.com/ssol-smartcs/ansible-collections
-$ cd ansible-collections
-$
-$ ansible-galaxy collection build seiko.smartcs
-$
+---
+- name: configuration tty 20 settings and write
+  seiko.smartcs.smartcs_config:
+    lines:
+      - set portd tty 20 label ROUTER
+      - set tty 20 baud 19200
+    save_when: modified
 ```
 
+### Use Case 3 - Displays the SmartCS hardware configuration, system software version, and boot information.
+```
+- name: run show version on remote devices
+  seiko.smartcs.smartcs_command:
+    commands: show version
+```
 
-## More information
+## Testing
+Tested with Ansible Core v2.16+ Ansible Core versions prior to 2.16 are not supported.
+This collection has been tested against NS-2250 Ver 3.1.1
 
-### docs.ansible.com
+## Support
+For any support request, please reach out to [SmartCS Support Portal](https://www.seiko-sol.co.jp/en/products/console-server/console-server_faq/).
 
-- [Ansible User guide](https://docs.ansible.com/ansible/latest/user_guide/index.html)
-- [Ansible Galaxy User guide](https://docs.ansible.com/ansible/latest/galaxy/user_guide.html)
-- [Ansible Network Getting Started](https://docs.ansible.com/ansible/latest/network/getting_started/index.html)
-- [Ansible Community code of conduct](https://docs.ansible.com/ansible/latest/community/code_of_conduct.html)
+## Release Notes and Roadmap
+Please see the [release notes](https://github.com/ssol-smartcs/ansible-collections/blob/main/seiko.smartcs/CHANGELOG.rst) for the latest updates to the SmartCS  collection.
 
-
+## Related Information
+See example playbooks and use cases [here](https://github.com/ssol-smartcs/ansible-tech-info/blob/main/contents/playbook-example.md). 
 ### SmartCS Official Website (SEIKO SOLUTIONS INC.)
 
 - [Network automation with Ansible](https://www.seiko-sol.co.jp/en/products/console-server/console-server_automation/ansible/)
 - [AnsibleとSmartCSの連携](https://www.seiko-sol.co.jp/products/console-server/console-server_automation/ansible/)
+
+
+## License Information
+SmartCS modules for Ansible is licensed under the [GNU General Public License Version 3](https://www.gnu.org/licenses/gpl-3.0.html).
+This software includes programs which are modified from Ansible.
+For the full text, see the COPYING file.
