@@ -204,7 +204,6 @@ def main():
     warnings = list()
     check_args(module, warnings)
     commands = parse_commands(module, warnings)
-    result['warnings'] = warnings
 
     wait_for = module.params['wait_for'] or list()
     conditionals = [Conditional(c) for c in wait_for]
@@ -239,6 +238,9 @@ def main():
         'stdout': responses,
         'stdout_lines': list(to_lines(responses))
     })
+
+    for w in warnings:
+        module.warn(w)
 
     module.exit_json(**result)
 

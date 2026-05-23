@@ -409,7 +409,6 @@ def main():
 
     warnings = list()
     check_args(module, warnings)
-    result['warnings'] = warnings
 
     if pre_check(module):
         pre_response = pre_action(module)
@@ -441,6 +440,9 @@ def main():
             'pre_stdout': pre_response,
             'pre_stdout_lines': list(to_lines(pre_response))
         })
+
+    for w in warnings:
+        module.warn(w)
 
     module.exit_json(**result)
 

@@ -6,8 +6,8 @@ SmartCS modules for Ansible works sends and receives character string to devices
 
 ## Requirements
 
-- Ansible Core 2.16.0 to 2.18.x
-- Python 3.10 to 3.12
+- Ansible Core 2.18.0 to 2.21.x
+- Python 3.10 to 3.14
 
 ## Installation
 Before using this collection, you need to install it with the Ansible Galaxy command-line tool:
@@ -30,10 +30,10 @@ To upgrade the collection to the latest available version, run the following com
 ansible-galaxy collection install seiko.smartcs --upgrade
 ```
 
-You can also install a specific version of the collection, for example, if you need to downgrade when something is broken in the latest version (please report an issue in this repository). Use the following syntax to install version 1.6.0:
+You can also install a specific version of the collection, for example, if you need to downgrade when something is broken in the latest version (please report an issue in this repository). Use the following syntax to install version 1.7.0:
 
 ```
-ansible-galaxy collection install seiko.smartcs:==1.6.0
+ansible-galaxy collection install seiko.smartcs:==1.7.0
 ```
 
 See [using Ansible collections](https://docs.ansible.com/ansible/devel/user_guide/collections_using.html) for more details.

@@ -134,7 +134,7 @@ backup_path:
   sample: /playbooks/ansible/backup/smartcs_config.2019-03-16@16:00:16
 """
 
-from ansible.module_utils._text import to_text
+from ansible.module_utils.common.text.converters import to_text
 from ansible.module_utils.connection import ConnectionError
 from ansible_collections.seiko.smartcs.plugins.module_utils.network.smartcs.smartcs import (
     run_commands,
@@ -225,7 +225,6 @@ def main():
 
     warnings = list()
     check_args(module, warnings)
-    result['warnings'] = warnings
 
     contents = None
     flags = []
@@ -282,6 +281,9 @@ def main():
     if module._diff:
         output = run_commands(module, 'show config running')
         contents = output[0]
+
+    for w in warnings:
+        module.warn(w)
 
     module.exit_json(**result)
 

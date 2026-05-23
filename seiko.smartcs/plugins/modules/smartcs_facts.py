@@ -161,7 +161,10 @@ def main():
     del ansible_facts["ansible_network_resources"]
 
     warnings.extend(additional_warnings)
-    module.exit_json(ansible_facts=ansible_facts, warnings=warnings)
+    for w in warnings:
+        module.warn(w)
+
+    module.exit_json(ansible_facts=ansible_facts)
 
 
 if __name__ == '__main__':

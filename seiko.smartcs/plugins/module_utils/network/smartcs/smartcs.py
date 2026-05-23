@@ -35,7 +35,7 @@ import json
 import re
 import os
 
-from ansible.module_utils._text import to_text
+from ansible.module_utils.common.text.converters import to_text
 from ansible.module_utils.basic import env_fallback
 from ansible_collections.ansible.netcommon.plugins.module_utils.network.common.utils import (
     to_list, ComplexList,
@@ -502,8 +502,7 @@ def comma_and_hyphen_to_comma(s):
             yield int(elem[0])
         elif len(elem) == 2:
             start, end = list(map(int, elem))
-            for i in range(start, end + 1):
-                yield i
+            yield from range(start, end + 1)
         else:
             raise ValueError("tty parameter is invalid range. valid range is from 1 to 48")
 

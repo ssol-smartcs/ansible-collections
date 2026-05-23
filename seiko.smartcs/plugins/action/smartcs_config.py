@@ -35,7 +35,7 @@ from ansible_collections.seiko.smartcs.plugins.module_utils.network.smartcs.smar
     smartcs_provider_spec,
     handle_template,
 )
-from ansible.module_utils._text import to_text
+from ansible.module_utils.common.text.converters import to_text
 from ansible.utils.display import Display
 
 display = Display()
